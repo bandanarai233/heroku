@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+
+
+{% block content %}
+
+<h3>Form to issue book from library :</h3>
+<form action="" id="form" onsubmit="return false;" style="background-color: rgb(153, 184, 184)">
+
+    First Name :<br>
+    <input type="text" name="firstname"><br><br>
+    Last Name :<br>
+    <input type="text" name="lastname"><br><br>
+    Contact number :<br>
+    <input type="tel" name="contactnumber"><br><br>
+    E-mail:<br>
+    <input type="email" name="email" placeholder="e-mail"><br><br>
+    Faculty :<br>
+    <input type="radio" name="faculty1" value="Science"> Science
+    <input type="radio" name="faculty2" value="Management"> Management
+    <input type="radio" name="faculty2" value="Humanities"> Humanities<br><br>
+    Book Title :<br>
+    <input type="text" name="title"><br><br>
+    Book Number :<br>
+    <input type="number" name="booknumber" min="0001" max="1000"><br><br>
+    Student ID :<br>
+    <input type="number" name="id" min="0001" max="1000"><br><br>
+    Date issued :
+    <input type="date" id="start" name="date_issued"><br><br>
+
+    <input type="submit">
+
+
+</form>
+
+{% endblock content %}

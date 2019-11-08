@@ -1,0 +1,6 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for book in book %}
+<p><b>{{ book.Book_Id }}. We have {{ book.Number_of_book }} <b>"{{ book.Title }}"</b> books written by <b>{{ book.Author }}</b><</p>br>
+{% endfor %}
+{% endblock content %}
