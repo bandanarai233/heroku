@@ -1,6 +1,17 @@
 {% extends 'blog/base.html' %}
-{% block content %}
-{% for book in book %}
-<p><b>{{ book.Book_Id }}. We have {{ book.Number_of_book }} <b>"{{ book.Title }}"</b> books written by <b>{{ book.Author }}</b><</p>br>
-{% endfor %}
+    {% block content %}
+    {% for book in book %}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ book.Author.profile.image.url }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <p>
+                    <b><i>{{ book.Title }}</i></b>
+                    <a href="{% url 'book_detail' book.id %}">[detail]</a> /
+                    <a href="{% url 'book_update' book.id %}">[update]</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
 {% endblock content %}

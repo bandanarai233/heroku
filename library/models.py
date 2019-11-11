@@ -1,16 +1,19 @@
 from django.db import models
-
-
+from django.urls import reverse
 
 class Book(models.Model):
   Book_Id = models.IntegerField()
   Title = models.CharField(max_length=100)
   Author = models.CharField(max_length=100)
   Number_of_book = models.IntegerField()
-  Available = models.BooleanField()
+  # Content = models.CharField(max_length=1000)
+  
 
   def __str__(self):
     return self.Title
+
+  def get_absolute_url(self):
+    return reverse('book_detail', kwargs={'pk':self.pk})
 
 
 

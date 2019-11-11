@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ book.Author.profile.image.url }}">
+    <div class="media-body">
+        <div class="article-metadata">
+
+            {{ book.id }}.<br>
+            We have {{ book.Number_of_book }}<br>
+            "{{ book.Title }}" <br>
+            books written by {{ book.Author }}
+
+        </div>
+    </div>
+</article>
+
+{% endblock content %}

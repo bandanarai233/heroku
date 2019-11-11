@@ -17,23 +17,16 @@
     <nav class="navbar navbar-light bg-dark">
 
         <a class="btn btn-light" vertical-align: middle; display:inline-block; color:black;"
-            href="http://localhost:8000/home/">HOME</a>
-
-        <a class="btn btn-light" vertical-align: middle; display:inline-block; color: black;"
-            href="http://localhost:8000/form/?firstname=&lastname=&contactnumber=&email=&title=&id=1000&date_issued=">Form
-            to issue book</a>
+            href="{% url 'book_list' %}">HOME</a>
 
         <a class="btn btn-light" vertical-align: middle; display:inline-block; color:black;"
-            href="http://localhost:8000/rules/">RULES</a>
+            href="{% url 'login' %}">LOG-IN</a>
 
         <a class="btn btn-light" vertical-align: middle; display:inline-block; color:black;"
-            href="http://localhost:8000/login/">LOG-IN</a>
+            href="{% url 'register' %}">REGISTER</a>
 
         <a class="btn btn-light" vertical-align: middle; display:inline-block; color:black;"
-            href="http://localhost:8000/register/">REGISTER</a>
-
-        <a class="btn btn-light" vertical-align: middle; display:inline-block; color:black;"
-            href="http://localhost:8000/profile/">PROFILE</a>
+            href="{% url 'profile' %}">PROFILE</a>
     
 
     </nav>
