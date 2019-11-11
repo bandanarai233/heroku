@@ -10,6 +10,8 @@
             We have {{ book.Number_of_book }}<br>
             "{{ book.Title }}" <br>
             books written by {{ book.Author }}
+            <a href="{% url 'book_update' book.id %}">[update]</a> /
+            <a href="{% url 'book_delete' book.id %}">[delete]</a>
 
         </div>
     </div>

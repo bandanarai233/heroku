@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import UpdateView, DeleteView 
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
 from django.http import HttpResponse
 from django.contrib import messages
@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 
 
 from .models import Book
-from library.forms import BookUpdateForm, BookDeleteForm
+from library.forms import BookUpdateForm, BookCreateForm
 
 
 # Create your views here.
@@ -57,6 +57,23 @@ class BookUpdateView(UpdateView):
     success_url = reverse_lazy('book_list')
 
 
+
+class BookDeleteView(DeleteView):
+    model = Book
+    template_name = 'blog/book_delete.html'
+    success_url = reverse_lazy('book_list')
+
+class BookCreateView(CreateView):
+    model = Book
+    form_class = BookCreateForm
+    template_name = 'blog/book_create.html'
+    success_url = reverse_lazy('book_list')
+
+    # def get_queryset(self):
+    #     owner = self.request.user
+    #     return self.model.objects.filter(owner=owner)
+
+
 # class BookUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 #     model = Book
 #     fields = ['Book_Id', 'Title', 'Author', 'Number_of_book']
@@ -71,19 +88,19 @@ class BookUpdateView(UpdateView):
 #             return True
 #         return False
 
-class BookDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = Book
-    fields = ['Book_Id', 'Title']
+# class BookDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+#     model = Book
+#     fields = ['Book_Id', 'Title']
 
-    def form_valid(self, form):
-        form.instance.Author = self.request.user
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form.instance.Author = self.request.user
+#         return super().form_valid(form)
 
-    def test_func(self):
-        book = self.get_object()
-        if self.request.user == book.Author:
-            return True
-        return False
+#     def test_func(self):
+#         book = self.get_object()
+#         if self.request.user == book.Author:
+#             return True
+#         return False
 
 
 
