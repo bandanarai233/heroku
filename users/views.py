@@ -1,7 +1,12 @@
+from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateform, ProfileUpdateForm
+from django.urls import reverse_lazy
+from users.models import Profile
+from django.contrib.auth.models import User
+
 
 def register(request):
     if request.method == 'POST':
@@ -44,5 +49,31 @@ def profile(request):
         'p_form': p_form
     }
     return render(request, 'users/profile.html', context)
+
+
+
+
+# class PasswordResetView(FormView):
+#     model = User
+#     form_class = PasswordResetForm
+#     template_name = 'users/password_reset.html'
+#     success_url = reverse_lazy('password_reset_done')
+
+
+# class PasswordResetDoneView(FormView):
+#     model = User
+#     form_class = PasswordResetDoneForm
+#     template_name = 'users/password_reset_done.html'
+
+
+
+
+
+
+
+
+    
+
+
 
 

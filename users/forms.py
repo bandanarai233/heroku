@@ -12,7 +12,7 @@ class UserRegisterForm(UserCreationForm):
 
 class UserUpdateform(forms.ModelForm):
     email = forms.EmailField()
-
+    
     class Meta:
         model = User
         fields = ['username', 'email']
@@ -21,3 +21,16 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
+
+
+# class PasswordResetForm(forms.ModelForm):
+#     class Meta:
+#         model = User
+#         fields = ['email']
+
+
+
+
+
+   

@@ -1,16 +1,29 @@
 {% extends 'blog/base.html' %}
-    {% block content %}
-    {% for book in book %}
-        <article class="media content-section">
-            <img class="rounded-circle article-img" src="{{ book.Author.profile.image.url }}">
-            <div class="media-body">
-                <div class="article-metadata">
-                    <p>
-                    <b><i>{{ book.Title }}</i></b>
-                    <a href="{% url 'book_detail' book.id %}">[detail]</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-    {% endfor %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Hi {{ user.username }}!</h1>
+<a href="{% url 'logout' %}" style="float: right;">logout</a></p>
+
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">login</a>
+{% endif %}
+<h5>
+    List of available books are :
+</h5>
+<br>
+{% for book in book %}
+<article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ book.Author.profile.image.url }}">
+    <div class="media-body">
+        <div class="article-metadata">
+
+            <p>
+                <b><i>{{ book.Title }}</i></b>
+                <a href="{% url 'book_detail' book.id %}">[detail]</a>
+            </p>
+        </div>
+    </div>
+</article>
+{% endfor %}
 {% endblock content %}
