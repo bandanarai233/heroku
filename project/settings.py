@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,7 +30,7 @@ SECRET_KEY = 'kg@0$-$ac)wf#ph6b&g9bg1%7jc2)iqz#wy^2=wj@i3-a&vo-m'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['lady-monsterapp.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['herokuapp.com', 'localhost', '0.0.0.0']
 
 
 # Application definition
@@ -142,6 +143,10 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'monster.pie321@gmail.com'
+EMAIL_HOST_USER = 'brai6843@gmail.com'
 EMAIL_HOST_PASSWORD = 'nzmvhymkjtdrrpnv'
 DEFAULT_FROM_EMAIL = 'Ontreat Team <ontreatinfo@ontreat.com>'
+
+
+
+django_heroku.settings(locals())
